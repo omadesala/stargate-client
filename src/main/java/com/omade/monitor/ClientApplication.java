@@ -16,6 +16,10 @@
 
 package com.omade.monitor;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,5 +31,12 @@ public class ClientApplication {
 	public static void main(String[] args) throws Exception {
 
 		logger.info("program start ...");
+		executeFixedRate();
+	}
+
+	public static void executeFixedRate() {
+		ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+		executor.scheduleAtFixedRate(new DoTask(), 0, 100,
+				TimeUnit.MILLISECONDS);
 	}
 }

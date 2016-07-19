@@ -5,14 +5,15 @@ import org.slf4j.LoggerFactory;
 
 import com.omade.monitor.utils.HttpRequestUtil;
 
-public class DoTask implements Runnable {
+public class VersionCheckTask implements Runnable {
 
-	private static final Logger logger = LoggerFactory.getLogger(DoTask.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(VersionCheckTask.class);
 
 	private String url;
 	private String port;
 
-	DoTask(String url, String port) {
+	VersionCheckTask(String url, String port) {
 		this.url = url;
 		this.port = port;
 	}
